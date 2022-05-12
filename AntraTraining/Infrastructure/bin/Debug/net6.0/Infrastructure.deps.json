@@ -6,20 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "MovieWebsite/1.0.0": {
-        "dependencies": {
-          "ApplicationCore": "1.0.0",
-          "Infrastructure": "1.0.0"
-        },
-        "runtime": {
-          "MovieWebsite.dll": {}
-        }
-      },
-      "ApplicationCore/1.0.0": {
-        "runtime": {
-          "ApplicationCore.dll": {}
-        }
-      },
       "Infrastructure/1.0.0": {
         "dependencies": {
           "ApplicationCore": "1.0.0"
@@ -27,21 +13,21 @@
         "runtime": {
           "Infrastructure.dll": {}
         }
+      },
+      "ApplicationCore/1.0.0": {
+        "runtime": {
+          "ApplicationCore.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "MovieWebsite/1.0.0": {
+    "Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "ApplicationCore/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

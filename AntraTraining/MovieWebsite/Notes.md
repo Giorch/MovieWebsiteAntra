@@ -14,3 +14,5 @@ Controller -> a C# class that inherits from controller class
 
 
 			Partial View => MovieCartdPartail and then u can reuse it across multiple views
+
+			Design Pattern that enables you yo write loosley coupled code

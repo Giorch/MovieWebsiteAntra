@@ -10,3 +10,15 @@ C:\Users\Owner\Desktop\AntraTraining\C#\Assignment6\AntraTraining\ApplicationCor
 C:\Users\Owner\Desktop\AntraTraining\C#\Assignment6\AntraTraining\ApplicationCore\obj\Debug\net6.0\refint\ApplicationCore.dll
 C:\Users\Owner\Desktop\AntraTraining\C#\Assignment6\AntraTraining\ApplicationCore\obj\Debug\net6.0\ApplicationCore.pdb
 C:\Users\Owner\Desktop\AntraTraining\C#\Assignment6\AntraTraining\ApplicationCore\obj\Debug\net6.0\ref\ApplicationCore.dll
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\ApplicationCore.AssemblyInfo.cs
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\ApplicationCore.dll
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\refint\ApplicationCore.dll
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\ApplicationCore.pdb
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\bin\Debug\net6.0\ApplicationCore.deps.json
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\bin\Debug\net6.0\ApplicationCore.dll
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\bin\Debug\net6.0\ApplicationCore.pdb
+C:\Users\Owner\Desktop\MovieWebsiteAntra\AntraTraining\ApplicationCore\obj\Debug\net6.0\ref\ApplicationCore.dll
