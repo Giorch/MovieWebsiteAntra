@@ -19,8 +19,6 @@ namespace ApplicationCore.Entities
         public string Name { get; set; }
 
         //Navigation property
-        // |
-        // v
         public Movie Movie { get; set; }
 
     }

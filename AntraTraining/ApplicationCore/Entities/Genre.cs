@@ -13,6 +13,6 @@ namespace ApplicationCore.Entities
         
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<MovieGenre> Genres { get; set; }
+        public ICollection<MovieGenre> GenresOfMovie { get; set; }
     }
 }

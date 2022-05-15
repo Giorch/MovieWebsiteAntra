@@ -24,16 +24,17 @@ namespace ApplicationCore.Entities
         public decimal? Budget { get; set; }
         public decimal? Revenue { get; set; }
 
-        [MaxLength(4096)]
+        [MaxLength(2084)]
         public string? ImdbUrl { get; set; }
-        [MaxLength(4096)]
+        [MaxLength(2084)]
         public string? TmdbUrl { get; set; }
 
-        [MaxLength(4096)]
+        [MaxLength(2084)]
         public string? PosterUrl { get; set; }
 
-        [MaxLength(4096)]
+        [MaxLength(2084)]
         public string? BackdropUrl { get; set; }
+        [MaxLength(64)]
         public string? OriginalLanguage { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public int? RunTime { get; set; }
@@ -49,7 +50,9 @@ namespace ApplicationCore.Entities
 
         //Navigation Property
         public ICollection<Trailer> Trailers { get; set; }
-        public ICollection<MovieGenre> Genres { get; set; }
-
+        public ICollection<MovieGenre> MoviesOfGenres{ get; set; }
+        public ICollection<MovieCast> CastOfMovie{ get; set; }
+        public ICollection<MovieCrew> CrewOfMovie{ get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
 }
