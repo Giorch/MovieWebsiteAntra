@@ -21,7 +21,9 @@ namespace ApplicationCore.Entities
 
         [MaxLength(512)]
         public string? Tagline { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal? Budget { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal? Revenue { get; set; }
 
         [MaxLength(2084)]
@@ -38,6 +40,7 @@ namespace ApplicationCore.Entities
         public string? OriginalLanguage { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public int? RunTime { get; set; }
+        [Column(TypeName = "decimal(5,2)")]
         public decimal? Price { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }

@@ -1,10 +1,18 @@
-﻿using ApplicationCore.Entities;
+﻿using ApplicationCore.Contracts.Services;
+using ApplicationCore.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MovieWebsite.Controllers
 {
     public class MoviesController : Controller
     {
+        private readonly IMovieService _movieService;
+
+        public MoviesController(IMovieService movieService)
+        {
+            _movieService = movieService;
+        }
+
         public IActionResult Details(int id)
         {
             // go to movies table and get the movie details by ID
@@ -16,7 +24,8 @@ namespace MovieWebsite.Controllers
             // Controllers action methods => Services methods => Repository methods => SQL database
             // get the mode data from the services and send the data to the views (M)
             // Onion architecure or N-Layer architetcure
-            return View();
+            var movie = _movieService.GetMovieDetails(id);
+            return View(movie);
         }
     }
 }
