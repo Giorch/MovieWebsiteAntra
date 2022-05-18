@@ -18,9 +18,9 @@ namespace Infrastructure.Services
             _movieRepository = movieRepository;
         }
 
-        public MovieDetailsModel GetMovieDetails(int movieId)
+        public async Task<MovieDetailsModel> GetMovieDetails(int movieId)
         {
-            var movie = _movieRepository.GetById(movieId);
+            var movie = await _movieRepository.GetById(movieId);
             var movieDetails = new MovieDetailsModel
             {
                 Id = movie.Id,
@@ -57,12 +57,27 @@ namespace Infrastructure.Services
             return movieDetails;
         }
 
-        public List<MovieCardModel> GetTop30GrossingMovies()
+        public async Task<PagedResult<MovieCardModel>> GetMoviesByGenrePagination(int genreId, int pageSize = 30, int pageNumber = 1)
+        {
+            var pagedMovies = await _movieRepository.GetMoviesByGenres(genreId, pageSize, pageNumber);
+            var movieCards = new List<MovieCardModel>();
+            movieCards.AddRange(pagedMovies.Data.Select(x => new MovieCardModel { 
+                Id = x.Id,
+                PosterUrl = x.PosterUrl,
+                Title = x.Title 
+            }));
+
+            return new PagedResult<MovieCardModel>(movieCards, pageNumber, pageSize, pagedMovies.Count);
+
+
+        }
+
+        public async Task<List<MovieCardModel>> GetTop30GrossingMovies()
         {
             // call the movierepository class
             // get the entity class data and map them in to model class data
             //var movieRepo = new MovieRepository();
-            var movies =  _movieRepository.GetTop30GrossingMovies();
+            var movies = await _movieRepository.GetTop30GrossingMovies();
 
             var movieCards = new List<MovieCardModel>();
 

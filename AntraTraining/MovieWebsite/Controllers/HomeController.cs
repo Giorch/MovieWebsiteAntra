@@ -17,11 +17,11 @@ namespace MovieWebsite.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
             //var movieService = new MovieService();
-            var movieCards = _movieService.GetTop30GrossingMovies();
+            var movieCards = await _movieService.GetTop30GrossingMovies();
             // passing the data from Controller action method to View
             return View(movieCards);
         }
