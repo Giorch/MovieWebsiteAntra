@@ -1,7 +1,10 @@
 ﻿using ApplicationCore.Contracts.Services;
 using ApplicationCore.Exceptions;
 using ApplicationCore.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace MovieWebsite.Controllers
 {
@@ -46,12 +49,29 @@ namespace MovieWebsite.Controllers
         {
             try
             {
-                var user = _accountService.LoginUser(model.Email, model.Password);
+                var user = await _accountService.LoginUser(model.Email, model.Password);
                 if(user != null)
                 {
+
+                    var claims = new List<Claim>()
+                    {
+                        new Claim(ClaimTypes.Email, user.Email),
+                        new Claim(ClaimTypes.GivenName, user.FirstName),
+                        new Claim(ClaimTypes.Surname, user.LastName),
+                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                        new Claim(ClaimTypes.DateOfBirth, user.DateOfBirth.ToShortDateString()),
+                        
+                    };
+
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+
+
                     return LocalRedirect("~/");
 
                 }
+                
             }
             catch (Exception)
             {

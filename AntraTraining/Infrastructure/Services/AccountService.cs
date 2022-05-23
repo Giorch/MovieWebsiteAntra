@@ -31,7 +31,8 @@ namespace Infrastructure.Services
                     Id = dbUser.Id,
                     Email = dbUser.Email,
                     FirstName = dbUser.FirstName,
-                    LastName = dbUser.LastName
+                    LastName = dbUser.LastName,
+                    DateOfBirth = dbUser.DateOfBirth.GetValueOrDefault()
                 };
 
                 return userLoginResponseModel;
@@ -79,6 +80,24 @@ namespace Infrastructure.Services
 
             return true;
         }
+
+        //public async Task<bool> ValidateUser(string email, string password)
+        //{
+        //    var user = await _userRepository.GetUserByEmail(email);
+        //    if (user == null)
+        //        throw new Exception("Email does not exist");
+            
+        //    var hashedPassword = GetHashedPassword(password, user.Salt); 
+        //    if(hashedPassword == user.HashedPassword)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+            
+        //}
 
         private string GetRandomSalt()
         {
