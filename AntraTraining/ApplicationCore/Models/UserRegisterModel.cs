@@ -19,7 +19,7 @@ namespace ApplicationCore.Models
         [Required(ErrorMessage = "Field required")]
         public string LastName { get; set; }
         [Required(ErrorMessage ="Password field required"), DataType(DataType.Password)]
-        [RegularExpression("^(?=.*[a-z](?=.*[A-Z])(?=.*\\d)(?=.*[#$^+=!*()@%&]).{8,}$")]
+        //[RegularExpression("^(?=.*[a-z](?=.*[A-Z])(?=.*\\d)(?=.*[#$^+=!*()@%&]).{8,}$")]
         public string Password { get; set; }
         [Required,DataType(DataType.Date)]
         [YearValidation(1900)]
