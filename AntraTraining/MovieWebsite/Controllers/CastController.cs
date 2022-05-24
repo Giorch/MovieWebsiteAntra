@@ -1,9 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApplicationCore.Contracts.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MovieWebsite.Controllers
 {
     public class CastController : Controller
     {
-        
+        private readonly ICastService _castService;
+
+        public CastController(ICastService castService)
+        {
+            _castService = castService;
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var castDetails = await _castService.GetCastDetails(id);
+            return View(castDetails);
+        }
     }
 }

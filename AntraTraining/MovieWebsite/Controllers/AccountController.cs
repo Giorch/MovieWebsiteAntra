@@ -25,6 +25,10 @@ namespace MovieWebsite.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
             //Save info in user table
             try
             {
@@ -47,6 +51,10 @@ namespace MovieWebsite.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(UserLoginModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             try
             {
                 var user = await _accountService.LoginUser(model.Email, model.Password);
@@ -81,5 +89,10 @@ namespace MovieWebsite.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login");
+        }
     }
 }

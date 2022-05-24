@@ -2,25 +2,25 @@
 
 
 <div class="containcolor" >
-  <div class="row" style="background-image:src(@Model.BackdropUrl)">
+  <div class="row" style="background-image:url(@Model.BackdropUrl); background-size:cover;background-blend-mode:darken">
     <div class="col">
       <img src="@Model.PosterUrl" width="200" />
     </div>
-    <div class="col">
-      <h3>@Model.Title</h3>
-      <h6 style="font-size:smaller; color:dimgray">@Model.Tagline</h6>
-      <h5>@Model.RunTime m | @Model.ReleaseDate.Value.Year 
+    <div class="col my-4">
+      <h3 style="color:white">@Model.Title</h3>
+      <h6 style="font-size:smaller; color:gray">@Model.Tagline</h6>
+      <h5 style="color:white">@Model.RunTime m | @Model.ReleaseDate.Value.Year 
           @foreach(var genre in Model.Genres)
            {<span class="badge bg-black" style="font-size:11px">@genre.Name </span>
            }
       </h5>
-      <h6 style="font-size:smaller">@Model.Overview</h6>
+      <h6 style="font-size:smaller; color:white">@Model.Overview</h6>
 
     </div>
-    <div class="col">
+    <div class="col ms-lg-auto my-5">
 
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">REVIEW</button>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#buyModal">BUY</button>
+      <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#reviewModal">REVIEW</button>
+      <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#buyModal">BUY</button>
 
     </div>
   </div>
@@ -56,7 +56,7 @@
           <ul class="list-group" style="font-size:15px; list-style:none">
               @foreach(var cast in Model.Casts)
                 {
-                    <li class="list-group-item"><span><b> @cast.Name</b></span> <span><b>@cast.Character</b></span></li>
+                    <li class="list-group-item"><a asp-controller="Cast" asp-action="Details" asp-route-id="@cast.Id"><b> @cast.Name</b></a> <span><b>@cast.Character</b></span></li>
                 }
           </ul>
         </div>

@@ -62,5 +62,6 @@ namespace Infrastructure.Repositories
             var pagedMovies = new PagedResult<Movie>(movies, pageNumber, pageSize, totalMoviesCountByGenre);
             return pagedMovies;
         }
+       
     }
 }

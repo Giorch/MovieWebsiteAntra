@@ -118,4 +118,18 @@ Hashing (one way) -> Passwords
 
 Login
 U1 -> abc@abc.com (Abc123!! + fdsjhfjksdfsfsdf) Hash1Alg - > adjjkfsjkfjsdfjklsdnjkfnwsdjnfjksd == has stored in database
-Compare ahshes
+Compare hashes
+
+Data Centers => Operations team that will manage those servers
+
+Cloud providers
+- Azure
+Cpu
+-IaaS -> Infrastructure as a Service, VM => Windows Server with 128GB RAM 20 core 5 THD
+-IIS => MovieShop App
+
+PaaS
+Azure App Service => Files, image, videos
+Azure CI/CD 
+Azure Functions
+Azure Cognitive Services
