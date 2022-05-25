@@ -30,10 +30,10 @@ show links
             <li class="nav-item dropdown text-capitalize">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">@currentUser.FullName</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item text-white" asp-controller="User" asp-action="Purchases">Library</a></li>
-                <li><a class="dropdown-item text-white" asp-controller="User" asp-action="Favorites">Favorites</a></li>
-                <li><a class="dropdown-item text-white" asp-controller="Account" asp-action="Profile">Account</a></li>
-                <li><a class="dropdown-item text-white" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                <li><a class="dropdown-item" asp-controller="User" asp-action="Purchases">Library</a></li>
+                <li><a class="dropdown-item" asp-controller="User" asp-action="Favorites" asp-route-userId="@currentUser.userId">Favorites</a></li>
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile">Account</a></li>
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Logout</a></li>
               </ul>
             </li>
         </ul>
@@ -42,7 +42,7 @@ show links
 else
 {
 <div class="text-end">
-    <a class="btn btn-outline-light me-2 text-white" asp-controller="Account" asp-action="Login" >  Login </a>
-    <a class="btn btn-outline-light me-2 text-white" asp-controller="Account" asp-action="Register" > Register </a>
+    <a class="btn btn-outline-light me-2" asp-controller="Account" asp-action="Login" >  Login </a>
+    <a class="btn btn-outline-light me-2" asp-controller="Account" asp-action="Register" > Register </a>
 </div>
 }

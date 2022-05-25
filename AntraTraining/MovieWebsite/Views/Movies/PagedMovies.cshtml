@@ -1,21 +1,24 @@
 ﻿@model ApplicationCore.Models.PagedResult<ApplicationCore.Models.MovieCardModel>
-
-
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
     @foreach(var movie in Model.Data)
     {
-    <partial name="_MovieCardPartial" model="movie"/>
+        <div class="col-6 col-lg-3 col-sm-4 col-xl-2" >
+        <partial name="_MovieCardPartial" model="movie"/>
+        </div>
     }
-
+        </div>
+    </div>
+</div>
     <nav aria-label="Page navigation example">
-        <ul class="pagination">
 
+            <ul class="pagination">
 
-
-            @for(int i = 0; i < Model.TotalPages; i++)
+            @for(int i = 1; i <= Model.TotalPages; i++)
             {
-                    <li class="page-item"><a class="page-link" href="#">@i</a></li>
-                
+                    <li class="page-item"><a class="page-link" asp-controller="Movies" asp-action="Genres" asp-route-pageNumber="@i">@i</a></li>
             }
+            </ul>
 
-        </ul>
     </nav>

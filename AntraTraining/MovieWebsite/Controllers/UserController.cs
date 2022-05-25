@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ApplicationCore.Contracts.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -7,6 +8,13 @@ namespace MovieWebsite.Controllers
     [Authorize]
     public class UserController : Controller
     {
+        private readonly IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         //[HttpGet]
         // public IActionResult Details(int id)
         // {
@@ -29,8 +37,9 @@ namespace MovieWebsite.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> Favorites()
+        public async Task<IActionResult> Favorites(int userId)
         {
+            var movies = _userService.GetAllFavorites(userId);
             return View();
         }
     }

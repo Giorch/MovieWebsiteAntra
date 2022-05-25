@@ -133,3 +133,28 @@ Azure App Service => Files, image, videos
 Azure CI/CD 
 Azure Functions
 Azure Cognitive Services
+
+
+Company ABC
+Team .NET MovieShop WEB App (ASP.NET Core MVC)
+
+API => So that other teams/languages can understand that API
+HTTP Protocol
+JSON Data
+
+2  categoreies
+old school web service -> SOAP Protocol
+REST API -> Architecture pattern
+
+Http Status Codes
+
+URL =>
+
+GET http://movieshop.com/api/movies/2
+POST http://movieshop.com/api/account/register
+
+Documentation => Swagger Documentation
+
+1 Mobile APP
+	iOS -> iOS Team Swift
+	Android -> Team Java
