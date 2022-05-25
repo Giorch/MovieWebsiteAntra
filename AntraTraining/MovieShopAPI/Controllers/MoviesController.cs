@@ -14,6 +14,13 @@ namespace MovieShopAPI.Controllers
         {
             _movieService = movieService;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetMovies(int pageSize = 30, int pageNumber = 1)
+        {
+            var movies = await _movieService.GetMoviesPagination(pageSize, pageNumber);
+            return Ok(movies);
+        }
         [Route("top-grossing")]
         [HttpGet]
         public async Task<IActionResult> TopGrossing()
@@ -26,6 +33,32 @@ namespace MovieShopAPI.Controllers
             }
 
             return Ok(movies);
+        }
+
+        [HttpGet]
+        [Route("top-rated")]
+        public async Task<IActionResult> TopRated()
+        {
+
+        }
+
+        [HttpGet]
+        [Route("genre/{genreId}")]
+        public async Task<IActionResult> Genres(int genreId, int pageSize = 30, int pageNumber = 1)
+        {
+
+            var pagedMovies = await _movieService.GetMoviesByGenrePagination(genreId, pageSize, pageNumber);
+
+            return Ok(pagedMovies);
+        }
+
+        [HttpGet]
+        [Route("{id}/reviews")]
+        public async Task<IActionResult> Reviews(int id, int pageSize = 30, int pageNumber = 1)
+        {
+            var pagedReviews = await _movieService.GetReviewsPagination(id, pageSize, pageNumber);
+
+            return Ok(pagedReviews);
         }
 
         [Route("{id}")]

@@ -62,6 +62,63 @@ namespace Infrastructure.Repositories
             var pagedMovies = new PagedResult<Movie>(movies, pageNumber, pageSize, totalMoviesCountByGenre);
             return pagedMovies;
         }
-       
+
+        public async Task<PagedResult<Movie>> GetAllMovies(int pageSize = 30, int pageNumber =1)
+        {
+            var totalMovieCount = await _dbContext.Movies.CountAsync();
+            if(totalMovieCount == 0)
+            {
+                throw new Exception("No movies found");
+            }
+            var movies = await _dbContext.Movies.OrderBy(m => m.Id).Select(m => new Movie
+            {
+
+                Id = m.Id,
+                PosterUrl = m.PosterUrl,
+                Title = m.Title
+            }).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var pagedMovies = new PagedResult<Movie>(movies, pageNumber, pageSize, totalMovieCount);
+            return pagedMovies;
+        }
+
+        public async Task<PagedResult<Review>> GetReviews(int id, int pageSize = 30, int pageNumber = 1)
+        {
+            var totalReviewCount = await _dbContext.Reviews.Include(r => r.Movie).Where(r => r.Movie.Id == id).CountAsync();
+            if (totalReviewCount == 0)
+            {
+                throw new Exception("No reviews found");
+            }
+            var reviews = await _dbContext.Reviews.Include(r => r.Movie).Where(r => r.Movie.Id == id).OrderBy(r => r.UserId).Select(r => new Review
+            {
+                Rating = r.Rating,
+                ReviewText = r.ReviewText,
+                UserId = r.UserId,
+                MovieId = r.MovieId
+            }).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var pagedReviews = new PagedResult<Review>(reviews, pageNumber, pageSize, totalReviewCount);
+            return pagedReviews;
+        }
+
+        private async Task<decimal> CalculateRating(int movieId)
+        {
+            var avgRating = await _dbContext.Reviews.Include(r => r.Movie).Where(r => r.MovieId == movieId).AverageAsync(r => r.Rating);
+            return avgRating;
+        }
+
+        //public async Task<PagedResult<Movie>> GetMoviesByRating(int pageSize = 30, int page = 1)
+        //{
+        //    var totalMovieCount = await _dbContext.Movies.CountAsync();
+        //    if (totalMovieCount == 0)
+        //    {
+        //        throw new Exception("No movies found");
+        //    }
+        //    var movies = await _dbContext.Movies.OrderBy(m => m.Id).ToListAsync();
+        //    foreach(var movie in movies)
+        //    {
+                
+        //    }
+        //}
     }
 }

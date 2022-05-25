@@ -99,6 +99,15 @@ namespace Infrastructure.Services
             
         //}
 
+        public async Task<bool> CheckEmail(string email)
+        {
+            var dbUser = await _userRepository.GetUserByEmail(email);
+            if (dbUser == null)
+            {
+                return false;
+            }
+            return true;
+        }
         private string GetRandomSalt()
         {
             var randomBytes = new byte[128 / 8];
